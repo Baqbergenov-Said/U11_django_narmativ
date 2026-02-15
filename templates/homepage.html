@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+
+<div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to TaskFlow</h1>
+        <p>Organize your tasks, boost your productivity, and achieve your goals</p>
+        <a href="{% url 'task_list' %}" class="cta-button">Get Started</a>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Why Choose TaskFlow?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>Easy Task Management</h3>
+                <p>Create, organize, and manage your tasks effortlessly with our intuitive interface.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✓</div>
+                <h3>Track Progress</h3>
+                <p>Monitor task status with real-time updates and completion tracking.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3>Set Deadlines</h3>
+                <p>Never miss a deadline with our date management and reminder system.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Boost Productivity</h3>
+                <p>Stay focused on what matters with organized and prioritized task lists.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Visual Dashboard</h3>
+                <p>Get a clear overview of all your tasks with modern visual design.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast & Responsive</h3>
+                <p>Lightning-fast performance optimized for all devices and screen sizes.</p>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Task Completion</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Access Anywhere</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Unlimited Tasks</div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,101 @@
+.delete-confirmation {
+    max-width: 500px;
+    margin: 50px auto;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #475569;
+    text-align: center;
+}
+
+.delete-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.delete-confirmation h2 {
+    font-size: 28px;
+    color: #f1f5f9;
+    margin-bottom: 15px;
+}
+
+.delete-message {
+    color: #cbd5e1;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.task-preview {
+    background: rgba(15, 23, 42, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #475569;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.task-preview h3 {
+    color: #f1f5f9;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.task-preview p {
+    color: #cbd5e1;
+    font-size: 14px;
+    margin: 0;
+}
+
+.delete-form {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.btn-confirm-delete,
+.btn-cancel-delete {
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-confirm-delete {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+}
+
+.btn-confirm-delete:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+}
+
+.btn-cancel-delete {
+    background: transparent;
+    color: #cbd5e1;
+    border: 1px solid #475569;
+}
+
+.btn-cancel-delete:hover {
+    background: rgba(71, 85, 105, 0.2);
+    color: #f1f5f9;
+}
+
+@media (max-width: 768px) {
+    .delete-confirmation {
+        margin: 30px 20px;
+        padding: 30px 20px;
+    }
+
+    .delete-icon {
+        font-size: 48px;
+    }
+}
+    
