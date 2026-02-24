@@ -1,101 +1,85 @@
 .delete-confirmation {
-    max-width: 500px;
-    margin: 50px auto;
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    padding: 40px 30px;
-    border-radius: 12px;
-    border: 1px solid #475569;
+    max-width: 450px;
+    margin: 80px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid #fee2e2; /* Och qizil chegara */
     text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
 }
 
 .delete-icon {
-    font-size: 60px;
+    font-size: 50px;
+    color: #ef4444;
     margin-bottom: 20px;
+    display: block;
 }
 
 .delete-confirmation h2 {
-    font-size: 28px;
-    color: #f1f5f9;
-    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 10px;
 }
 
 .delete-message {
-    color: #cbd5e1;
-    margin-bottom: 30px;
-    font-size: 16px;
+    color: #64748b;
+    margin-bottom: 25px;
+    font-size: 15px;
 }
 
+/* Task preview - Task haqida qisqacha ma'lumot qutisi */
 .task-preview {
-    background: rgba(15, 23, 42, 0.8);
-    padding: 20px;
+    background: #fef2f2;
+    padding: 15px;
     border-radius: 8px;
-    border: 1px solid #475569;
+    border: 1px dashed #fecaca;
     margin-bottom: 30px;
-    text-align: left;
 }
 
 .task-preview h3 {
-    color: #f1f5f9;
-    margin-bottom: 10px;
-    font-size: 18px;
+    color: #991b1b;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 700;
 }
 
-.task-preview p {
-    color: #cbd5e1;
-    font-size: 14px;
-    margin: 0;
-}
-
+/* Tugmalar */
 .delete-form {
     display: flex;
-    gap: 15px;
     flex-direction: column;
-}
-
-.btn-confirm-delete,
-.btn-cancel-delete {
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    gap: 12px;
 }
 
 .btn-confirm-delete {
-    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    background: #ef4444;
     color: white;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .btn-confirm-delete:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+    background: #dc2626;
+    box-shadow: 0 8px 15px rgba(239, 68, 68, 0.2);
 }
 
 .btn-cancel-delete {
-    background: transparent;
-    color: #cbd5e1;
-    border: 1px solid #475569;
+    background: #ffffff;
+    color: #64748b;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 .btn-cancel-delete:hover {
-    background: rgba(71, 85, 105, 0.2);
-    color: #f1f5f9;
+    background: #f8fafc;
+    color: #1e293b;
 }
-
-@media (max-width: 768px) {
-    .delete-confirmation {
-        margin: 30px 20px;
-        padding: 30px 20px;
-    }
-
-    .delete-icon {
-        font-size: 48px;
-    }
-}
-    

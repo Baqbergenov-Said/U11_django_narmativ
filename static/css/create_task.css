@@ -1,116 +1,107 @@
-/* Container to center form vertically and horizontally */
-.task-container {
+/* Fonni och kulrang qilish */
+body {
+    background-color: #f8fafc;
+}
+
+.form-wrapper {
     display: flex;
-    justify-content: center;  /* horizontal center */
-    align-items: center;      /* vertical center */
-    min-height: calc(100vh - 60px); /* adjust 60px to navbar height */
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
     padding: 20px;
-    box-sizing: border-box;
 }
 
-/* Form card styling */
-.edit-form {
-    max-width: 600px;
+/* Oq card dizayni */
+.form-card {
+    background: #ffffff;
+    max-width: 550px;
     width: 100%;
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid #475569;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* Form groups */
-.form-group {
-    margin-bottom: 25px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 10px;
-    color: #f1f5f9;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-/* Inputs, textarea, select */
-.form-input,
-.form-textarea,
-.form-select {
-    width: 100%;
-    padding: 12px 15px;
-    background: rgba(15, 23, 42, 0.8);
-    border: 1px solid #475569;
     border-radius: 8px;
-    color: #f1f5f9;
-    font-size: 14px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
 }
 
-.form-input:focus,
-.form-textarea:focus,
-.form-select:focus {
+.form-header {
+    padding: 20px 30px;
+    border-bottom: 1px solid #f1f5f9;
+    background-color: #ffffff;
+}
+
+.main-task-form {
+    padding: 30px;
+}
+
+/* Inputlar stili */
+.input-section {
+    margin-bottom: 20px;
+}
+
+.input-section label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.input-section input, 
+.input-section textarea, 
+.input-section select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #1e293b;
+    background-color: #ffffff;
+    transition: border-color 0.2s;
+}
+
+.input-section input:focus, 
+.input-section textarea:focus, 
+.input-section select:focus {
     outline: none;
     border-color: #6366f1;
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
-.form-textarea {
-    resize: vertical;
-}
-
-/* Form actions */
-.form-actions {
+/* Tugmalar */
+.form-footer-buttons {
     display: flex;
-    gap: 15px;
-    margin-top: 30px;
+    gap: 12px;
+    margin-top: 10px;
 }
 
-/* Buttons */
-.btn-save,
-.btn-cancel {
-    flex: 1;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.btn-save {
-    background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+.btn-confirm {
+    flex: 2;
+    background-color: #4f46e5;
     color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
-.btn-save:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+.btn-confirm:hover {
+    background-color: #4338ca;
 }
 
-.btn-cancel {
-    background: transparent;
-    color: #cbd5e1;
-    border: 1px solid #475569;
+.btn-dismiss {
+    flex: 1;
+    background-color: #ffffff;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    text-decoration: none;
+    text-align: center;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.2s;
 }
 
-.btn-cancel:hover {
-    background: rgba(71, 85, 105, 0.2);
-    color: #f1f5f9;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .edit-form {
-        padding: 20px;
-    }
-
-    .form-actions {
-        flex-direction: column;
-    }
+.btn-dismiss:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
 }

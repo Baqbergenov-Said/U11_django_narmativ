@@ -4,38 +4,50 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/create_task.css' %}">
 
-<div class="task-container">
-    <form method="POST" class="edit-form">
-        {% csrf_token %}
+<div class="form-wrapper">
+    <div class="form-card shadow-sm">
+        <div class="form-header">
+            <h4 class="m-0 fw-bold text-dark">Create New Task</h4>
+            <p class="text-muted small">Fill in the details below</p>
+        </div>
         
-        <div class="form-group">
-            <label for="title">Task Title</label>
-            <input type="text" id="title" name="title" placeholder="Enter task title" required class="form-input">
-        </div>
+        <form method="POST" class="task-container">
+            {% csrf_token %}
+            
+            <div class="input-section">
+                <label for="title">Task Title</label>
+                <input type="text" id="title" name="title" placeholder="Please enter a title for your task" required>
+            </div>
 
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea id="description" name="description" class="form-textarea" rows="4" placeholder="Enter task description (optional)"></textarea>
-        </div>
+            <div class="input-section">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="4" placeholder="Briefly describe the task..."></textarea>
+            </div>
 
-        <div class="form-group">
-            <label for="doe_date">Due Date</label>
-            <input type="datetime-local" id="doe_date" name="doe_date" class="form-input">
-        </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-section">
+                        <label for="doe_date">Due Date</label>
+                        <input type="datetime-local" id="doe_date" name="doe_date">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-section">
+                        <label for="status">Status</label>
+                        <select id="status" name="status">
+                            <option value="pending">Pending</option>
+                            <option value="in_progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-        <div class="form-group">
-            <label for="status">Status</label>
-            <select id="status" name="status" class="form-select">
-                <option value="pending">Pending</option>
-                <option value="in_progress">In Progress</option>
-                <option value="completed">Completed</option>
-            </select>
-        </div>
-
-        <div class="form-actions">
-            <button type="submit" class="btn-save">Create Task</button>
-            <a href="{% url 'task_list' %}" class="btn-cancel">Cancel</a>
-        </div>
-    </form>
+            <div class="form-footer-buttons">
+                <button type="submit" class="btn-confirm">Create Task</button>
+                <a href="{% url 'tasks' %}" class="btn-dismiss">Cancel</a>
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

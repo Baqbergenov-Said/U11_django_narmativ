@@ -20,7 +20,7 @@
         <form method="POST" class="delete-form">
             {% csrf_token %}
             <button type="submit" class="btn-confirm-delete">Delete Task</button>
-            <a href="{% url 'task_list' %}" class="btn-cancel-delete">Cancel</a>
+            <a href="{% url 'tasks' %}" class="btn-cancel-delete">Cancel</a>
         </form>
     </div>
 </div>

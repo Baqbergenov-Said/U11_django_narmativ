@@ -1,49 +1,53 @@
-/* Container to center form */
+/* Konteynerni markazlash */
 .task-container {
     display: flex;
-    justify-content: center; /* horizontal center */
-    align-items: center;     /* vertical center */
-    min-height: calc(100vh - 60px); /* full viewport height minus navbar */
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
     padding: 20px;
-    box-sizing: border-box;
 }
 
-/* Form card styling */
+/* Form card - Oq fonda, chiroyli soya bilan */
 .edit-form {
-    max-width: 600px;
+    max-width: 550px;
     width: 100%;
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    padding: 30px;
+    background: #ffffff;
+    padding: 40px;
     border-radius: 12px;
-    border: 1px solid #475569;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
-/* Form groups */
+.edit-form h2 {
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Form elementlari */
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 10px;
-    color: #f1f5f9;
+    margin-bottom: 8px;
+    color: #475569;
     font-weight: 600;
     font-size: 14px;
 }
 
-/* Inputs, textarea, select */
 .form-input,
 .form-textarea,
 .form-select {
     width: 100%;
     padding: 12px 15px;
-    background: rgba(15, 23, 42, 0.8);
-    border: 1px solid #475569;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
-    color: #f1f5f9;
+    color: #1e293b;
     font-size: 14px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: all 0.3s ease;
 }
 
@@ -51,66 +55,49 @@
 .form-textarea:focus,
 .form-select:focus {
     outline: none;
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    background: #ffffff;
+    border-color: #4f46e5; /* Primary ko'k rang */
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
-.form-textarea {
-    resize: vertical;
-}
-
-/* Form actions */
+/* Tugmalar */
 .form-actions {
     display: flex;
     gap: 15px;
     margin-top: 30px;
 }
 
-/* Buttons */
-.btn-save,
-.btn-cancel {
-    flex: 1;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
 .btn-save {
-    background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+    flex: 2;
+    background: #4f46e5;
     color: white;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 .btn-save:hover {
+    background: #4338ca;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
 }
 
 .btn-cancel {
-    background: transparent;
-    color: #cbd5e1;
-    border: 1px solid #475569;
+    flex: 1;
+    background: #f1f5f9;
+    color: #64748b;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 .btn-cancel:hover {
-    background: rgba(71, 85, 105, 0.2);
-    color: #f1f5f9;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .edit-form {
-        padding: 20px;
-    }
-
-    .form-actions {
-        flex-direction: column;
-    }
+    background: #e2e8f0;
+    color: #1e293b;
 }
