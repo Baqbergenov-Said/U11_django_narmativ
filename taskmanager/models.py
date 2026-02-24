@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 #Soft delete model for task, instead of deleting the record from database, we will mark it as deleted by setting is_deleted to True
 class TaskQuerySet(models.QuerySet):
     def delete(self):
@@ -17,6 +17,9 @@ class Status(models.TextChoices):
 
 # Task model to store task information
 class Task(models.Model):
+    # evey user can have many tasks, but each task belongs to one user, so we will use ForeignKey to create a relationship between User and Task models
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tasks', null=True, blank=True)
+
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     doe_date = models.DateTimeField(null=True, blank=True)

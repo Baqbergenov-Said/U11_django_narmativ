@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from .models import Task
 from .forms import RegisterForm, LoginForm 
 
@@ -11,11 +13,12 @@ def homepage(request):
 def page_not_found(request, path):
     return render(request, 'not_found.html', status=404)
 
+@login_required(login_url='login')
 def task_list(request):
     query = request.GET.get('q', '').strip()
     page_number = request.GET.get('page', 1)
     
-    tasks_list = Task.objects.all().order_by('-doe_date')
+    tasks_list = Task.objects.filter(user=request.user).order_by('-doe_date')
 
     if query:
         tasks_list = tasks_list.filter(
@@ -61,16 +64,18 @@ def logout_view(request):
     return redirect('login')
 
 # CRUD operations:
+@login_required(login_url='login')
 def create_task(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         description = request.POST.get('description', '')
         doe_date = request.POST.get('doe_date')
         status = request.POST.get('status', 'pending')
-        Task.objects.create(title=title, description=description, doe_date=doe_date, status=status)
+        Task.objects.create(user=request.user, title=title, description=description, doe_date=doe_date, status=status)
         return redirect('tasks')
     return render(request, 'create_task.html')
 
+@login_required(login_url='login')
 def delete_task(request, pk):
     task = get_object_or_404(Task, pk=pk)
     if request.method == 'POST':
@@ -78,6 +83,7 @@ def delete_task(request, pk):
         return redirect('tasks')
     return render(request, 'task_delete.html', {'task': task})
 
+@login_required(login_url='login')
 def update_task(request, pk):
     task = get_object_or_404(Task, pk=pk)
     if request.method == 'POST':
