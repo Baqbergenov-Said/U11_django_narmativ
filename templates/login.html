@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/edit_task.css' %}">
+
+<div class="task-container">
+    <div class="edit-form shadow-lg">
+        <h2 class="text-center mb-4" style="color: #6366f1; font-weight: 700;">Into the system</h2>
+        
+        <form method="post" novalidate>
+            {% csrf_token %}
+            
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger py-2 small border-0 shadow-sm mb-3">
+                    {% for error in form.non_field_errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% for field in form %}
+                <div class="form-group mb-3">
+                    <label for="{{ field.id_for_label }}" style="color: #f1f5f9; font-weight: 600;">
+                        {{ field.label }}
+                    </label>
+                    {{ field }}
+                    
+                    {% if field.errors %}
+                        <div class="text-danger small mt-1">
+                            {{ field.errors.0 }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <div class="form-actions mt-4">
+                <button type="submit" class="btn-save w-100">LOG IN</button>
+            </div>
+        </form>
+
+        <div class="text-center mt-4 border-top pt-3 border-secondary">
+            <p class="small text-secondary">
+                Do you have an acount? <a href="{% url 'register' %}" style="color: #6366f1; text-decoration: none; font-weight: 600;">Sign up</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

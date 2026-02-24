@@ -1,46 +1,58 @@
-  {% load static %}
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>TaskFlow</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  </head>
-  <body class="bg-light">
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body class="bg-light">
 
-      <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
-        <div class="container">
-          <a class="navbar-brand fw-bold text-primary" href="{% url 'home' %}">TaskFlow</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+    <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="{% url 'tasks' %}">TaskFlow</a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="collapse navbar-collapse" id="navbarMain">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'tasks' %}">Tasks</a>
-              </li>
-            </ul>
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'tasks' %}">Tasks</a>
+            </li>
+          </ul>
 
-            <form class="d-flex" method="GET" action="{% url 'tasks' %}">
-              <input class="form-control me-2 shadow-sm border-0" type="search" name="q" 
-                    placeholder="Search tasks..." aria-label="Search" value="{{ request.GET.q }}">
-              <button class="btn btn-outline-primary shadow-sm" type="submit">Search</button>
-            </form>
+          <form class="d-flex me-3" method="GET" action="{% url 'tasks' %}">
+            <input class="form-control me-2 shadow-sm border-0" type="search" name="q" 
+                   placeholder="Search tasks..." aria-label="Search" value="{{ request.GET.q }}">
+            <button class="btn btn-outline-primary shadow-sm" type="submit">Search</button>
+          </form>
+
+          <div class="navbar-nav">
+            {% if request.user.is_authenticated %}
+                <span class="nav-link text-dark fw-semibold me-2">Hi, {{ request.user.username }}!</span>
+                <a class="btn btn-outline-danger btn-sm d-flex align-items-center" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a class="nav-link me-2" href="{% url 'login' %}">Login</a>
+                <a class="btn btn-primary btn-sm d-flex align-items-center" href="{% url 'register' %}">Register</a>
+            {% endif %}
           </div>
+          
         </div>
-      </nav>
+      </div>
+    </nav>
 
-      <main class="container my-4">
-          {% block content %}{% endblock %}
-      </main>
+    <main class="container my-4">
+        {% block content %}{% endblock %}
+    </main>
 
-      <footer class="bg-white border-top text-center py-4 mt-5">
-          <p class="text-muted mb-0">&copy; 2026 TaskFlow. All rights reserved.</p>
-      </footer>
+    <footer class="bg-white border-top text-center py-4 mt-5">
+        <p class="text-muted mb-0">&copy; 2026 TaskFlow. All rights reserved.</p>
+    </footer>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
-  </html>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
